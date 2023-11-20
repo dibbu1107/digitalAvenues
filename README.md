@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+To run backend 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+cd /Backend
+npm start
 
-## Available Scripts
 
-In the project directory, you can run:
+To run frontend
 
-### `npm start`
+cd /Frontend
+npm start 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Api's to test on the postman 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Register
 
-### `npm run build`
+curl --location 'http://localhost:8000/auth/register' \
+--header 'Content-Type: application/json' \
+--data '{
+  "username": "DivyaNigam",
+  "password": "testpassword"
+}
+'
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Login 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+curl --location 'http://localhost:8000/auth/login' \
+--header 'Content-Type: application/json' \
+--data '{
+  "username": "DivyaNigam",
+  "password": "testpassword"
+}
+'
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Add Events
 
-### `npm run eject`
+curl --location 'http://localhost:8000/tasks' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzQzLCJpYXQiOjE3MDA1MDUyODcsImV4cCI6MTcwMDUwODg4N30.5M8gMnUoyhfPftkJQ4g89iO-xc93H__gd_wWyVCe284' \
+--header 'Content-Type: application/json' \
+--data '{
+  "title": "hello divyar",
+  "date": "2023-11-23"
+}
+'
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Get Events
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+curl --location 'http://localhost:8000/tasks' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzQzLCJpYXQiOjE3MDA0NzIzNzcsImV4cCI6MTcwMDQ3NTk3N30.KBv61USEDA_A5VTMk43NgkMlvVMkgasB-y9ktNTkWso'
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Delete Events
 
-## Learn More
+curl --location --request DELETE 'http://localhost:8000/tasks/722' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzQzLCJpYXQiOjE3MDA0NzIzNzcsImV4cCI6MTcwMDQ3NTk3N30.KBv61USEDA_A5VTMk43NgkMlvVMkgasB-y9ktNTkWso'
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Update the done status 
 
-### Code Splitting
+curl --location --request PUT 'http://localhost:6000/tasks/4' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWF0IjoxNzAwNDIyOTgyLCJleHAiOjE3MDA0MjY1ODJ9.lLGD546MA-7F_45ZCg5WFGOj3Bp7iQ8-uLkWV3tXTJ0' \
+--header 'Content-Type: application/json' \
+--data '{
+  "title": "hello Divya",
+  "date": "2023-11-21"
+}
+'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
