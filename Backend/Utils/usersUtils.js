@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-// Use the absolute path for users.json
 const usersFilePath = path.join(__dirname, '..', 'Data', 'users.json');
 
 function loadUsers() {
@@ -22,7 +21,7 @@ function generateUniqueId(users) {
   let newId;
 
   do {
-    newId = Math.floor(Math.random() * 1000) + 1; // Generate a random ID
+    newId = Math.floor(Math.random() * 1000) + 1; 
   } while (existingIds.includes(newId));
 
   return newId;

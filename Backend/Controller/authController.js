@@ -10,7 +10,7 @@ const register = async (req, res) => {
     return res.status(400).json({ success: false, message: 'Username and password are required' });
   }
 
-  const existingUsers = loadUsers(); // Load users from the file
+  const existingUsers = loadUsers(); 
   const existingUser = existingUsers.find((user) => user.username === username);
 
   if (existingUser) {
@@ -35,7 +35,7 @@ const login = async (req, res) => {
     return res.status(400).json({ success: false, message: 'Username and password are required' });
   }
 
-  const users = loadUsers(); // Load users from the file
+  const users = loadUsers();
   const user = users.find((u) => u.username === username);
 
   if (!user) {
